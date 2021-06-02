@@ -26,7 +26,8 @@ Route::get('/', HomeController::class);# Busca el método invoke
 
 Route::get('cursos', [CursoController::class, 'index'])->name('cursos.index');
 Route::get('cursos/create', [CursoController::class, 'create'])->name('cursos.create');
-Route::get('cursos/{curso}', [CursoController::class, 'show'])->name('cursos.show');
+// Route::get('cursos/{curso}', [CursoController::class, 'show'])->name('cursos.show');
+Route::get('cursos/{id}', [CursoController::class, 'show'])->name('cursos.show');
 
 
 
