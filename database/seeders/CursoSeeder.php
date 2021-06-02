@@ -15,11 +15,11 @@ class CursoSeeder extends Seeder
     public function run()
     {
         //
-        $curso = new Curso;
-
-        $curso->name = 'Laravel';
-        $curso->description = 'El Mejor Framework';
-        $curso->categoria = 'Desarrollo Web';
-        $curso->save();
+        // $curso = new Curso;
+        // $curso->name = 'Laravel';
+        // $curso->description = 'El Mejor Framework';
+        // $curso->categoria = 'Desarrollo Web';
+        // $curso->save();
+        // Curso::factory(50)->create();# SE CREAN 50 REGISTROS
     }
 }
