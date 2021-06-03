@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 
 class CursoController extends Controller
 {
-    
+
     public function index()
     {
         // return 'Bienvenido a la página principal';
         // $cursos  = Curso::all();
-        $cursos  = Curso::paginate();//Por defecto se tiene 15 registros
+        $cursos  = Curso::orderBy('id', 'desc')->paginate(); //Por defecto se tiene 15 registros
         // return $cursos;
         return view('cursos.index', compact('cursos'));
     }
@@ -23,12 +23,42 @@ class CursoController extends Controller
         return view('cursos.create');
     }
 
-    public function show($id){
-    //    return "Bienvendo al curso de: $curso";
-    //    return view('cursos.show', ['curso' => $curso]);
-        $curso = Curso::findOrFail($id);
-       return view('cursos.show', compact('curso'));
+    public function store(Request $request)
+    {
+        $curso = new Curso();
+        $curso->name = $request->name;
+        $curso->description = $request->description;
+        $curso->categoria = $request->categoria;
+
+        $curso->save();
+        return redirect()->route('cursos.show', ['id' => $curso->id]);
     }
 
+    public function show($id)
+    {
+        //    return "Bienvendo al curso de: $curso";
+        //    return view('cursos.show', ['curso' => $curso]);
+        $curso = Curso::findOrFail($id);
+        return view('cursos.show', compact('curso'));
+    }
 
+    public function edit(Curso $curso)
+    {
+        // $curso = Curso::findOrFail($id);
+        // return $curso;
+        return view('cursos.edit', compact('curso'));
+    }
+
+    public function update(Request $request, Curso $curso )
+    {
+        // return $request->all();
+        $curso->name = $request->name;
+        $curso->description = $request->description;
+        $curso->categoria = $request->categoria;
+
+        $curso->save();
+        return redirect()->route('cursos.show',$curso);
+
+
+    }
 }
