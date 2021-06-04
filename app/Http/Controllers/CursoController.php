@@ -33,13 +33,23 @@ class CursoController extends Controller
         //     'categoria' => 'required',
         // ]);
 
-        $curso = new Curso();
+        /* $curso = new Curso();
         $curso->name = $request->name;
         $curso->description = $request->description;
         $curso->categoria = $request->categoria;
+        $curso->save(); */
 
-        $curso->save();
-        return redirect()->route('cursos.show', ['id' => $curso->id]);
+        /* $curso = Curso::create([
+            'name' => $request->name,
+            'description' =>  $request->description,
+            'categoria' => $request->categoria,
+        ]); */
+        // return $request->all();
+        $curso = Curso::create($request->all());
+
+
+        // return redirect()->route('cursos.show', ['id' => $curso->id]);
+        return redirect()->route('cursos.show', $curso);
     }
 
     public function show($id)
@@ -65,11 +75,12 @@ class CursoController extends Controller
         //     'categoria' => 'required',
         // ]);
         // return $request->all();
-        $curso->name = $request->name;
-        $curso->description = $request->description;
-        $curso->categoria = $request->categoria;
+        // $curso->name = $request->name;
+        // $curso->description = $request->description;
+        // $curso->categoria = $request->categoria;
+        // $curso->save();
+        $curso->update($request->all());
 
-        $curso->save();
         return redirect()->route('cursos.show', $curso);
     }
 }
