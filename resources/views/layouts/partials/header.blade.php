@@ -1,5 +1,5 @@
 <header>
-    <h1>Coders Free</h1>
+    <h1>Coders Free </></h1>
     <nav>
         <ul>
             <li>
@@ -7,12 +7,24 @@
             </li>
             <li>
                 <a href="{{ route('cursos.index') }}"
-                    class="{{ request()->routeIs('cursos.*') ? 'active' : '' }}">Cursos</a>
+                    class="{{ request()->routeIs('cursos.*') ? 'active' : '' }}">
+                    Cursos
+                </a>
             </li>
             <li>
                 <a href="{{ route('nosotros') }}"
-                    class="{{ request()->routeIs('nosotros') ? 'active' : '' }}">Nosotros</a>
+                    class="{{ request()->routeIs('nosotros') ? 'active' : '' }}">
+                    Nosotros
+                </a>
             </li>
+
+            <li>
+                <a href="{{ route('contactanos.index') }}"
+                    class="{{ request()->routeIs('contactanos.*') ? 'active' : '' }}">
+                    Contactanos
+                </a>
+            </li>
+
         </ul>
     </nav>
 </header>
