@@ -18,4 +18,10 @@ class Curso extends Model
      * es decir que los ignora
      */
     protected $guarded = [];
+
+    public function getRouteKeyName()
+    {
+        // return $this->getKeyName();
+        return 'slug';
+    }
 }

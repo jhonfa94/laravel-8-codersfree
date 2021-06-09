@@ -52,11 +52,11 @@ class CursoController extends Controller
         return redirect()->route('cursos.show', $curso);
     }
 
-    public function show($id)
+    public function show(Curso $curso)
     {
         //    return "Bienvendo al curso de: $curso";
         //    return view('cursos.show', ['curso' => $curso]);
-        $curso = Curso::findOrFail($id);
+        // $curso = Curso::findOrFail($id);
         return view('cursos.show', compact('curso'));
     }
 
