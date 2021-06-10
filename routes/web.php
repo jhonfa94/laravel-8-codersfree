@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CursoController;
 
+use App\Mail\ContactanosMailable;
+use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,7 +36,16 @@ Route::get('cursos/{curso}/edit', [CursoController::class, 'edit'])->name('curso
 Route::put('cursos/{curso}', [CursoController::class, 'update'])->name('cursos.update');
 Route::delete('cursos/{curso}', [CursoController::class, 'destroy'])->name('cursos.destroy'); */
 
-Route::resource('cursos',CursoController::class);
+Route::resource('cursos', CursoController::class);
 
 
 Route::view('nosotros', 'nosotros')->name('nosotros');
+
+
+
+# Ruta para el envío del email  
+Route::get('contactanos', function () {
+    $correo = new ContactanosMailable();
+    Mail::to('contacto@jfcm.com.co')->send($correo);
+    return 'Mensjae enviado';
+});

@@ -5,5 +5,5 @@
     
 {{-- Agregando contenido principal --}}
 @section('content')
-    <h1>Nosotros</h1>
+    <h1>Nosotrosk</h1>
 @endsection
