@@ -22,7 +22,7 @@ use App\Http\Controllers\CursoController;
 });
  */
 
-Route::get('/', HomeController::class); # Busca el método invoke
+Route::get('/', HomeController::class)->name('home'); # Busca el método invoke
 
 
 /* Route::get('cursos', [CursoController::class, 'index'])->name('cursos.index');
@@ -35,3 +35,6 @@ Route::put('cursos/{curso}', [CursoController::class, 'update'])->name('cursos.u
 Route::delete('cursos/{curso}', [CursoController::class, 'destroy'])->name('cursos.destroy'); */
 
 Route::resource('cursos',CursoController::class);
+
+
+Route::view('nosotros', 'nosotros')->name('nosotros');
